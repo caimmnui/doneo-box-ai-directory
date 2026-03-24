@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doneo Box</title>
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Lora:ital@1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/responsiv.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+    <div class="shell">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <div class="logo">DONEO<span>·</span>BOX / Biblioteca IA</div>
+            <button class="theme-btn" id="themeBtn"><i class="fas fa-sun"></i> Modo Claro</button>
+        </div>
+
+        <!-- HERO -->
+        <header class="hero">
+            <h1 class="hero-title"><em>Doneo box</em></h1>
+            <p class="hero-sub">Busque uma <em>IA</em> por categoria, função ou nome.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">650+</span>
+                    <span class="stat-label">ferramentas IA</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">33</span>
+                    <span class="stat-label">categorias</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">grátis usar</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SEARCH -->
+        <div class="search-wrap">
+            <div class="search-inner">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="ChatGPT, desenhar imagem, programar código..."
+                    autocomplete="off" spellcheck="false">
+                <span class="search-kbd" id="kbdHint">Ctrl+K</span>
+                <button class="clear-btn" id="clearBtn" aria-label="Limpar busca">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filters-scroll">
+            <div class="filters" id="filtersContainer">
+                <a href="index.html" class="filter-btn" data-filter="TUDO">
+                    <span class="filter-dot"></span>
+                    Tudo
+                </a> <button class="filter-btn" data-filter="TEXTO"><span class="filter-dot"></span>Texto</button>
+                <button class="filter-btn" data-filter="IMAGEM"><span class="filter-dot"></span>Imagem</button>
+                <button class="filter-btn" data-filter="VÍDEO"><span class="filter-dot"></span>Vídeo</button>
+                <button class="filter-btn" data-filter="ÁUDIO"><span class="filter-dot"></span>Áudio & Voz</button>
+                <button class="filter-btn" data-filter="CÓDIGO"><span class="filter-dot"></span>Código</button>
+                <button class="filter-btn" data-filter="DESIGN"><span class="filter-dot"></span>Design</button>
+                <button class="filter-btn" data-filter="APRESENTAÇÃO"><span class="filter-dot"></span>Slides</button>
+                <button class="filter-btn" data-filter="AUTOMAÇÃO"><span class="filter-dot"></span>Automação</button>
+                <button class="filter-btn" data-filter="NEGÓCIOS"><span class="filter-dot"></span>Negócios</button>
+                <button class="filter-btn" data-filter="EDUCAÇÃO"><span class="filter-dot"></span>Educação</button>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <main>
+
+            <!-- WELCOME STATE (hidden, just spacer) -->
+            <div class="welcome-state" id="welcomeState">
+                <div class="welcome-section">
+                    <h3 class="welcome-title">Categoria Popular</h3>
+                    <div class="category-grid" id="categorySuggestions"></div>
+                </div>
+                <div class="welcome-section">
+                    <h3 class="welcome-title">ou tente buscar</h3>
+                    <div class="quick-search-pills">
+                        <button class="quick-search-pill" data-search="gerar imagem"><i class="fas fa-image"></i>
+                            Imagem</button>
+                        <button class="quick-search-pill" data-search="programação"><i class="fas fa-code"></i>
+                            Código</button>
+                        <button class="quick-search-pill" data-search="voz"><i class="fas fa-microphone"></i>
+                            Áudio</button>
+                        <button class="quick-search-pill" data-search="tradução"><i class="fas fa-globe"></i>
+                            Tradução</button>
+                        <button class="quick-search-pill" data-search="editar vídeo"><i class="fas fa-film"></i>
+                            Vídeo</button>
+                        <button class="quick-search-pill" data-search="automação"><i class="fas fa-cogs"></i>
+                            Automação</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon"><i class="fas fa-search"></i></div>
+                <h3>Nenhuma ferramenta encontrada</h3>
+                <p>Tente outro termo ou limpe os filtros.</p>
+            </div>
+
+            <!-- RESULTS HEADER -->
+            <div class="results-header" id="resultsHeader">
+                <span class="results-count"><strong id="countNum">0</strong> ferramentas encontradas</span>
+                <span class="results-query" id="resultsQuery"></span>
+            </div>
+
+            <!-- RESULTS -->
+            <div id="resultsGrid"></div>
+
+        </main>
+    </div>
+    <div class="footer-signature">
+        <a href="https://github.com/caimmnui" target="_blank" class="github-icon-link" aria-label="GitHub Profile">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.29 9.5 21.04C9.5 20.82 9.5 20.24 9.5 19.46C6.73 20.06 6.14 18.12 6.14 18.12C5.69 16.96 5.03 16.64 5.03 16.64C4.13 16.02 5.1 16.04 5.1 16.04C6.1 16.11 6.63 17.07 6.63 17.07C7.52 18.6 8.96 18.16 9.53 17.9C9.62 17.25 9.88 16.81 10.17 16.56C7.94 16.31 5.6 15.44 5.6 11.56C5.6 10.45 6 9.54 6.65 8.82C6.55 8.57 6.2 7.51 6.75 6.12C6.75 6.12 7.61 5.84 9.56 7.17C10.38 6.94 11.26 6.83 12.13 6.83C13 6.83 13.88 6.94 14.7 7.17C16.65 5.84 17.51 6.12 17.51 6.12C18.06 7.51 17.71 8.57 17.61 8.82C18.26 9.54 18.65 10.45 18.65 11.56C18.65 15.45 16.3 16.3 14.07 16.55C14.43 16.86 14.76 17.48 14.76 18.43C14.76 19.79 14.75 20.88 14.75 21.04C14.75 21.3 14.91 21.59 15.42 21.5C19.38 20.16 22.25 16.42 22.25 12C22.25 6.477 17.77 2 12 2Z" />
+            </svg>
+        </a>
+        <a href="https://github.com/caimmnui" target="_blank" class="footer-text">
+            MADE BY <span class="caim-link">CAIM</span>
+        </a>
+    </div>
+    <script src="js/modules/database.js"></script>
+    <script src="js/modules/database.js"></script>
+    <script src="js/modules/security.js"></script>
+    <script src="js/modules/filter.js"></script>
+    <script src="js/modules/search.js"></script>
+    <script src="js/modules/filter.js"></script>
+    <script src="js/modules/search.js"></script>
+    <script src="js/modules/ui.js"></script>
+    <script src="js/modules/theme.js"></script>
+    <script src="js/modules/keyboard.js"></script>
+    <script src="js/modules/main.js"></script>
+</body>
+
+</html>
