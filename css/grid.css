@@ -1,0 +1,124 @@
+
+
+/* ── RESULTS GRID ── */
+#resultsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* ── TOOL ROW ── */
+.tool-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: slideIn 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    border-radius: 10px;
+    margin: 0.25rem 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ligne de couleur à gauche au survol */
+.tool-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 3px 0 0 3px;
+}
+
+.tool-row:hover {
+    background: var(--surface2);
+    border-bottom-color: transparent;
+    padding-left: 1.5rem;
+}
+
+.tool-row:hover::before {
+    transform: scaleY(1);
+}
+
+.tool-row:hover .tool-name {
+    color: var(--accent);
+}
+
+.tool-row:hover .arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tool-left {
+    min-width: 0;
+}
+
+/* ── TOOL NAME ── */
+.tool-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+/* ── TOOL DESC ── */
+.tool-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ── ARROW ── */
+.tool-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.arrow {
+    color: var(--accent);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: opacity 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 1.4rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+    .tool-row {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1rem;
+    }
+
+    .tool-right {
+        display: none;
+    }
+
+    .tool-row::before {
+        display: none;
+    }
+    
+    .tool-row:hover {
+        padding-left: 1rem;
+    }
+}

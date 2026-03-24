@@ -1,0 +1,54 @@
+
+/* ── DARK MODE (padrão) ── */
+:root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #191919;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.18);
+    --text: #e8e4df;
+    --text-muted: #555;
+    --text-dim: #888;
+    --accent: #c8f55a;
+    --accent-dim: rgba(200, 245, 90, 0.12);
+    --accent-on: #0a0a0a;
+
+    --badge-free-text: #5af5d8;
+    --badge-free-border: rgba(90, 245, 216, 0.25);
+    --badge-free-bg: rgba(90, 245, 216, 0.06);
+
+    --badge-gratis-text: #c8f55a;
+    --badge-gratis-border: rgba(200, 245, 90, 0.25);
+    --badge-gratis-bg: rgba(200, 245, 90, 0.06);
+
+    --badge-pago-text: #f55a5a;
+    --badge-pago-border: rgba(245, 90, 90, 0.25);
+    --badge-pago-bg: rgba(245, 90, 90, 0.06);
+}
+
+/* ── LIGHT MODE ── */
+body.light {
+    --bg: #faf7f2;
+    --surface: #f2ede5;
+    --surface2: #e8e1d6;
+    --border: rgba(60, 45, 20, 0.10);
+    --border-hover: rgba(60, 45, 20, 0.25);
+    --text: #1c1710;
+    --text-muted: #8a7e6e;
+    --text-dim: #5a5040;
+    --accent: #2e5e18;
+    --accent-dim: rgba(46, 94, 24, 0.10);
+    --accent-on: #faf7f2;
+
+    --badge-free-text: #1a6b55;
+    --badge-free-border: rgba(26, 107, 85, 0.28);
+    --badge-free-bg: rgba(26, 107, 85, 0.07);
+
+    --badge-gratis-text: #3a6e10;
+    --badge-gratis-border: rgba(58, 110, 16, 0.28);
+    --badge-gratis-bg: rgba(58, 110, 16, 0.07);
+
+    --badge-pago-text: #b53030;
+    --badge-pago-border: rgba(181, 48, 48, 0.25);
+    --badge-pago-bg: rgba(181, 48, 48, 0.06);
+}
